@@ -15,7 +15,13 @@ class ProtocolService:
         logger.success("Данный для протокола успешно загружены")
     
     def generate_protocol(self, output_path: str):
-        pass
+        if not self.protocol_data:
+            self.load_data()
+        logger.info("Начинаю генерить протокол")
+        doc_generator = DocumentGenrator(self.protocol_data)
+        doc_generator.generate_document(output_path)
+        logger.success(f"Протокол успшно создан: {output_path}")
+        
     
     def get_test_results_summary(self) -> dict:
         """Анализ результов испытание на соответствие(не соответствие)"""
