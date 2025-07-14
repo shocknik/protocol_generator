@@ -1,6 +1,9 @@
 from docx import Document
 from docx.shared import Pt, Cm, Mm
-from .table_builder import TableBulder
+from .sections.header_section import HeaderSection
+from .sections.basis_section import BasisSection
+from .sections.customer_section import CustomerSection
+from .sections.equipment_section import EquipmentSection
 
 
 class DocumentGeneration:
@@ -30,7 +33,7 @@ class DocumentGeneration:
         '''Формирование разделов'''
         sections = [
             HeaderSection(self.document, self.protocol_data),
-            BasicSection(self.document, self.protocol_data),
+            BasisSection(self.document, self.protocol_data),
             CustomerSection(self.document, self.protocol_data),
             TestResultSection(self.document, self.protocol_data),
             EquipmentSection(self.document, self.protocol_data),
@@ -38,6 +41,7 @@ class DocumentGeneration:
         ]
         
         for section in sections:
-            section.build()
-        self.document.save(output_path)    
+            section.build() # Единый интерфейс для разных классов секций(sections) - в кадом модуле есть метод build  
+            
+        self.document.save(output_path) 
         

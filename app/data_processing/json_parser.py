@@ -1,6 +1,6 @@
 import json
-from core.models import ProtocolData
-from core.exceptions import InvalidJSONError
+from app.core.models import ProtocolData
+from app.core.exceptions import InvalidJSONError
 
 def load_json_data(file_path: str) -> dict:
     try:
