@@ -1,4 +1,4 @@
-from docx import Document
+from docx.document import Document
 import datetime
 from app.core.models import ProtocolData
 from app.utils.logger import logger

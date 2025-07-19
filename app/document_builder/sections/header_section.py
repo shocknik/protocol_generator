@@ -39,8 +39,8 @@ class HeaderSection(BaseSection):
         
         
         # Утверждающая подпись
-        row0.cell[2]
-        approval_cell = row0.cell[2]
+        row0.cells[0]
+        approval_cell = row0.cells[2]
         approval_cell.text = "УТВЕРЖДАЮ"
         approval_cell.add_paragraph(CERTIFICATION_TEXT)
         approval_cell.add_paragraph("____________________")

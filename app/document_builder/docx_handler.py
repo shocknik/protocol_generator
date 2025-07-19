@@ -1,9 +1,11 @@
-from docx import Document
+from docx import Document 
 from docx.shared import Pt, Cm, Mm
 from .sections.header_section import HeaderSection
 from .sections.basis_section import BasisSection
 from .sections.customer_section import CustomerSection
 from .sections.equipment_section import EquipmentSection
+from .sections.signatures_section import SignaturesSection
+from .sections.test_result_section import TestResultsSection
 
 
 class DocumentGeneration:
@@ -35,7 +37,7 @@ class DocumentGeneration:
             HeaderSection(self.document, self.protocol_data),
             BasisSection(self.document, self.protocol_data),
             CustomerSection(self.document, self.protocol_data),
-            TestResultSection(self.document, self.protocol_data),
+            TestResultsSection(self.document, self.protocol_data),
             EquipmentSection(self.document, self.protocol_data),
             SignaturesSection(self.document, self.protocol_data)
         ]

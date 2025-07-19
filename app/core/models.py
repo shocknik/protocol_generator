@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
 from typing import Dict, List, Optional, Union
 
@@ -20,6 +20,11 @@ class TestObjectInfo(BaseModel):
 class TestDates(BaseModel):
     start_date: datetime = Field(..., alias="Дата начала")
     end_date: datetime = Field(..., alias="Дата окончания")
+    
+    @field_validator("start_date", "end_date", mode="before")
+    @classmethod
+    def parse_date(cls, value: str) -> datetime:
+        return datetime.strptime(value, "%d.%m.%Y")
     
 class EnvironmentConditions(BaseModel):
     temperature: str = Field(..., alias = "Температура")

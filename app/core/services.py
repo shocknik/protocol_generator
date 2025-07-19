@@ -1,7 +1,8 @@
 from datetime import datetime
-from data_processing.json_parser import parse_protocol_data, load_json_data
-from utils.logger import logger
-import pandas
+from app.data_processing.json_parser import parse_protocol_data, load_json_data
+from app.utils.logger import logger
+from app.document_builder.docx_handler import DocumentGeneration
+
 
 
 class ProtocolService:
@@ -18,7 +19,7 @@ class ProtocolService:
         if not self.protocol_data:
             self.load_data()
         logger.info("Начинаю генерить протокол")
-        doc_generator = DocumentGenrator(self.protocol_data)
+        doc_generator = DocumentGeneration(self.protocol_data)
         doc_generator.generate_document(output_path)
         logger.success(f"Протокол успшно создан: {output_path}")
         

@@ -6,6 +6,7 @@ def load_json_data(file_path: str) -> dict:
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
+        logger.info('Данные с json прочитаны')
     except Exception as e:
         raise InvalidJSONError(
             message = "Ошибка при загрузке JSON-файла",

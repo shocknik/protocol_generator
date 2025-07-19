@@ -1,6 +1,11 @@
 import sys
+import os
 from app.core.services import ProtocolService
 from config import JSON_PATH, OUTPUT_DIR
+from pathlib import Path
+
+# Добавляем корень проекта в sys.path
+sys.path.append(str(Path(__file__).parent))
 
 def main():
     # Используем путь из аргументов или конфига
