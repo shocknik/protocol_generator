@@ -1,4 +1,5 @@
 from .base_section import BaseSection
+from docx.shared import Cm, Inches
 
 class EquipmentSection(BaseSection):
     '''Раздел с перечнем оболрудования'''
@@ -10,6 +11,9 @@ class EquipmentSection(BaseSection):
         '''Создаем таблицу с оборудованием'''
         equipment = self.protocol_data.equipment
         table = self._add_table(rows=len(equipment) + 1, cols=8)
+        table.style = 'Table Grid'
+        table.autofit = False
+        
         # Добавляем заголовок таблицы
         headers = [
             "№ п.п",
@@ -36,6 +40,9 @@ class EquipmentSection(BaseSection):
             row.cells[6].text = equip.accuracy
             row.cells[7].text = equip.calibration_date
         self.logger.success(f"Добавлено {len(equipment)} единиц оборудования")
+        
+        for row in table.rows:
+            row.cells[0].width = Cm(1.2)
         
                
         

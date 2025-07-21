@@ -37,8 +37,8 @@ class DocumentGeneration:
             HeaderSection(self.document, self.protocol_data),
             BasisSection(self.document, self.protocol_data),
             CustomerSection(self.document, self.protocol_data),
-            TestResultsSection(self.document, self.protocol_data),
             EquipmentSection(self.document, self.protocol_data),
+            TestResultsSection(self.document, self.protocol_data),
             SignaturesSection(self.document, self.protocol_data)
         ]
         

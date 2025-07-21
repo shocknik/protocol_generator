@@ -5,7 +5,7 @@ class BasisSection(BaseSection):
     
     def build(self):
         self.logger.info("Формирование раздела 'Основание для испытаний'")
-        self._add_heading("Основание для проведения исытаний", level=1)
+        self._add_heading("1 Основание для проведения исытаний", level=1)
         '''Текст основания'''
         basis_text = (
             f'{self.protocol_data.test_basis}'
