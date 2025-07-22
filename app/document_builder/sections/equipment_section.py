@@ -43,6 +43,12 @@ class EquipmentSection(BaseSection):
         
         for row in table.rows:
             row.cells[0].width = Cm(1.2)
+            row.cells[1].width = Cm(6.5)
+            row.cells[2].width = Cm(2.05)
+            row.cells[4].width = Cm(3.0)
+            row.cells[5].width = Cm(4.3)
+            row.cells[6].width = Cm(2.7)
+            row.cells[7].width = Cm(4.0)
         
                
         

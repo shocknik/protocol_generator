@@ -21,7 +21,7 @@ class ProtocolService:
         logger.info("Начинаю генерить протокол")
         doc_generator = DocumentGeneration(self.protocol_data)
         doc_generator.generate_document(output_path)
-        logger.success(f"Протокол успшно создан: {output_path}")
+        logger.success(f"Протокол успешно создан: {output_path}")
         
     
     def get_test_results_summary(self) -> dict:
